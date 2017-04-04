@@ -2,7 +2,7 @@
   "name": "bloc-jams-angular",
   "version": "1.0.0",
   "description": "Bloc Jams Angular",
-  "main": "index.html",
+  "main": "scripts/app.js",
   "dependencies": {
     "npm": "^3.10.10"
   },
