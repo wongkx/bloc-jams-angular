@@ -1,7 +1,7 @@
 (function() {
     function SongPlayer(Fixtures) {
 
-        /******
+/******
 PRIVATE
 ******/
 
@@ -60,7 +60,7 @@ PRIVATE
             return currentAlbum.songs.indexOf(song);
         };
 
-        /******
+/******
 PUBLIC
 ******/
 
