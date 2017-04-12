@@ -43,6 +43,10 @@
                 scope.fillStyle = function() {
                     return {width: percentString()};
                 };
+                
+                scope.thumbStyle = function() {
+                    return {left: percentString()};
+                };
                 /**
  * @function onClickSeekBar
  * @desc determines the current value on the seek bar
