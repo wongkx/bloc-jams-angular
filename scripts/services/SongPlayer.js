@@ -86,6 +86,8 @@
          * @type {Number}
          */    
         SongPlayer.currentTime = null;
+        
+        SongPlayer.volume = 50;
         /**
          * @function setCurrentTime
          * @desc Set current time (in seconds) of currently playing song
@@ -94,6 +96,11 @@
         SongPlayer.setCurrentTime = function(time) {
             if (currentBuzzObject) {
                 currentBuzzObject.setTime(time);
+            }
+        };
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
             }
         };
         /**
