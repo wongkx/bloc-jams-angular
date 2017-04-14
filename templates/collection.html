@@ -1,11 +1,19 @@
 <section class="album-covers container clearfix">
-    <div class="collection-album-container column fourth" ng-repeat="album in collection.albums track by $index">
+    <div class="links-container">
+        <form ng-submit="submit()">
+            Search: 
+            <input type="text" ng-model="search" name="search" value="">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="collection-album-container column fourth" ng-repeat="album in collection.albums  | filter:search track by $index">
         <img ng-src="{{ album.albumArtUrl }}"/>
         <div class="collection-album-info caption">
             <p>
-                <a class="album-name" ui-sref="album">{{ album.title }}</a>
+                <a class="album-name" ng-click="collection.fixtures.setCurrentAlbum(album)" ui-sref="album">{{ album.title }}</a>
                 <br/>
-                <a ui-sref="album">{{ album.artist }}</a>
+                <a ui-sref="album" ng-click="collection.fixtures.setCurrentAlbum(album)">{{ album.artist }}</a>
                 <br/>
                 {{ album.songs.length }} songs
                 <br/>

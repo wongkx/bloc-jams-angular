@@ -22,6 +22,8 @@
          */
         var currentBuzzObject = null;
 
+
+
         /**
          * @function setSong
          * @desc Stops currently playing song and loads new audio file as currentBuzzObject
@@ -36,13 +38,19 @@
                 format: ['mp3'],
                 preload: true
             });
-            
+            /**
+         * @function timeupdate
+         * @desc bind the time of the song as it plays, and when finished, go to the next song
+         */    
             currentBuzzObject.bind('timeupdate', function() {
                 $rootScope.$apply(function() {
                     SongPlayer.currentTime = currentBuzzObject.getTime();
+                    if (currentBuzzObject.isEnded()) {
+                        SongPlayer.next();
+                    }
                 });
             });
-            
+
             SongPlayer.currentSong = song;
         }
         /**
@@ -86,7 +94,9 @@
          * @type {Number}
          */    
         SongPlayer.currentTime = null;
-        
+
+        SongPlayer.muted = false;
+
         SongPlayer.volume = 50;
         /**
          * @function setCurrentTime
@@ -101,6 +111,20 @@
         SongPlayer.setVolume = function(volume) {
             if (currentBuzzObject) {
                 currentBuzzObject.setVolume(volume);
+            }
+        };
+        /**
+         * @function toggleMute
+         * @desc toggle mute
+         */
+        SongPlayer.toggleMute = function() {
+            if (!SongPlayer.muted) {
+                SongPlayer.muted = true; 
+            } else {
+                SongPlayer.muted = false;
+            } 
+            if (currentBuzzObject) {
+                currentBuzzObject.toggleMute();
             }
         };
         /**

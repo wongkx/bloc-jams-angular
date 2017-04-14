@@ -1,6 +1,6 @@
 (function() {
     function AlbumCtrl(Fixtures, SongPlayer){
-        this.albumData = Fixtures.getAlbum();        
+        this.albumData = Fixtures.getCurrentAlbum();        
         this.songPlayer = SongPlayer;
 
         /*this.songs = angular.copy(this.albumData.songs);

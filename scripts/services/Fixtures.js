@@ -32,9 +32,23 @@
             ]
         };
         
+        Fixtures.currentAlbum = null;
+        
         Fixtures.getAlbum = function() {
             return albumPicasso;
         };
+        
+        Fixtures.getAllAlbums = function(){
+            return [albumPicasso, albumMarconi];
+        }
+            
+        Fixtures.setCurrentAlbum = function(album) {
+            currentAlbum = album;
+        }
+        
+        Fixtures.getCurrentAlbum = function(){
+            return currentAlbum;
+        }
         
         Fixtures.getCollection = function(numberOfAlbums) {
             this.albums = [];
@@ -43,6 +57,7 @@
             } 
             return this.albums;
         };
+        
 
         return Fixtures;
     }
